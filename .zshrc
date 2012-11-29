@@ -7,6 +7,7 @@ export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # Separete '/'
 
 bindkey -e               # キーバインドをemacsモードに設定
 #bindkey -v              # キーバインドをviモードに設定
@@ -27,7 +28,7 @@ setopt auto_menu               # 補完キー連打で補完候補を順に表�
 setopt list_packed             # 補完候補をできるだけ詰めて表示する
 setopt list_types              # 補完候補にファイルの種類も表示する
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+zstyle ':completion:*:default' menu select=1 matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
 ### Glob ###
 setopt extended_glob # グロブ機能を拡張する
@@ -104,6 +105,8 @@ kterm*|xterm*|)
   ;;
 esac
 
+### auto completion / ###
+setopt auto_param_slash
 
 # ------------------------------
 # Other Settings
