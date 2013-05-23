@@ -84,3 +84,11 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 filetype on
 filetype indent on
 filetype plugin on
+highlight SpellBad ctermfg=4 ctermbg=7
+
+"次のバッファへの移動(:bn)にキーバインドマッピング(Ctl+n)
+nnoremap <C-n> <ESC>:bn<CR>
+
+"前のバッファへの移動(:bp)にキーバインドマッピング(Ctl+p)
+nnoremap <C-p> <ESC>:bp<CR>
+
