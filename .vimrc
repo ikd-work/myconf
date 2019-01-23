@@ -1,8 +1,3 @@
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
 "(no)VimをなるべくVi互換にする
 set nocompatible
 
@@ -58,6 +53,9 @@ set tabstop=4
 "自動インデントの各段階に使われる空白の数
 set shiftwidth=4
 
+"1回の削除操作で削除する連続した空白の数
+set softtabstop=4
+
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 
@@ -92,3 +90,11 @@ nnoremap <C-n> <ESC>:bn<CR>
 "前のバッファへの移動(:bp)にキーバインドマッピング(Ctl+p)
 nnoremap <C-p> <ESC>:bp<CR>
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
